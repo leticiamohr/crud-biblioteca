@@ -1,0 +1,52 @@
+﻿@model CRUDBiblioteca.Models.Book
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<div>
+    <h4>Detalhes do livro:</h4>
+    <hr />
+    <dl class="row">
+        <dt class= "col-sm-3">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Classification)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Classification)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.NumPages)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.NumPages)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Edition)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Edition)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="CreateOrEdit" asp-route-id="@Model?.BookId" class="btn btn-secondary btn-block"><i class='bx bxs-edit'></i>Editar</a>
+    <a asp-action="Index" class="btn btn-secondary btn-block"><i class='bx bx-arrow-back'></i>Voltar</a>
+</div>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CRUDBiblioteca.Models.Book>
+
+@{
+    ViewData["Title"] = "Biblioteca";
+}
+
+<h1>Acervo de livros</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumPages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edition)
+            </th>
+            <th>
+                <a asp-action="CreateOrEdit" class="btn btn-outline-dark"><i class='bx bx-plus'></i>Novo livro</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Classification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumPages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edition)
+            </td>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.BookId"><i class='bx bx-show'></i></a> |
+                    <a asp-action="CreateOrEdit" asp-route-id="@item.BookId"><i class='bx bxs-edit text-dark'></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.BookId" onclick="return confirm('Quer mesmo deletar o registro?')" class="text-danger ml-1"><i class='bx bxs-trash'></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

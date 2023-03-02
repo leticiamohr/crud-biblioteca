@@ -1,0 +1,90 @@
+﻿@model CRUDBiblioteca.Models.Book
+
+@{
+    ViewData["Title"] = "Cadastro";
+}
+
+<h2>Cadastro de livros</h2>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="CreateOrEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BookId"/>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" placeholder="Título do livro" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author" class="control-label"></label>
+                <input asp-for="Author" class="form-control" placeholder="Autor do livro" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Genre" class="control-label"></label>
+                    <select asp-for="Genre" class="form-control">
+                        <option value="">Selecione o gênero</option>
+                        <option value="Acao">Ação</option>
+                        <option value="Autoajuda">Autoajuda</option>
+                        <option value="Aventura">Aventura</option>
+                        <option value="Biografia">Biografia</option>
+                        <option value="Ciencia">Ciência</option>
+                        <option value="Conto">Conto</option>
+                        <option value="Crimes">Crimes reais</option>
+                        <option value="Distopia">Distopia</option>
+                        <option value="Fantasia">Fantasia</option>
+                        <option value="Ficcao científica">Ficção científica</option>
+                        <option value="Historia">História</option>
+                        <option value="Humor">Humor</option>
+                        <option value="Infantil">Infantil</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Suspense">Suspense</option>
+                        <option value="Tecnologia">Tecnologia</option>
+                        <option value="Terror">Terror</option>
+                    </select>
+                    <span asp-validation-for="Genre" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Classification" class="control-label"></label>
+                    <select asp-for="Classification" class="form-control">
+                        <option value="">Selecione a classificação</option>
+                        <option value="L">L</option>
+                        <option value="10">+10</option>
+                        <option value="12">+12</option>
+                        <option value="14">+14</option>
+                        <option value="16">+16</option>
+                        <option value="18">+18</option>
+                    </select>
+                    <span asp-validation-for="Classification" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label asp-for="NumPages" class="control-label"></label>
+                    <input asp-for="NumPages" class="form-control" placeholder="N°" />
+                    <span asp-validation-for="NumPages" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Edition" class="control-label"></label>
+                    <input asp-for="Edition" class="form-control" placeholder="N°" />
+                    <span asp-validation-for="Edition" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Salvar" class="btn btn-primary btn-block"/>
+                </div>
+                <div class="form-group col-md-6">
+                    <a asp-action="Index" class="btn btn-secondary btn-block"><i class='bx bx-arrow-back'></i>Voltar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
